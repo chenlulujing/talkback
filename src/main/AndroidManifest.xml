@@ -60,7 +60,9 @@
     <application
         android:icon="@drawable/icon"
         android:label="@string/talkback_title"
-        android:supportsRtl="true">
+        android:supportsRtl="true"
+
+        >
 
         <receiver android:name=".BootReceiver"
             android:directBootAware="true"
@@ -76,7 +78,12 @@
                 android:name="com.android.utils.TestActivity"
                 android:exported="false"
                 android:label="TestActivity"
-                android:launchMode="singleTop" >
+                android:launchMode="singleTop"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <!-- TalkBack -->
@@ -88,7 +95,6 @@
             android:directBootAware="true">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
-
                 <category android:name="android.accessibilityservice.category.FEEDBACK_AUDIBLE" />
                 <category android:name="android.accessibilityservice.category.FEEDBACK_HAPTIC" />
                 <category android:name="android.accessibilityservice.category.FEEDBACK_SPOKEN" />
